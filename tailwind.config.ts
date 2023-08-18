@@ -21,6 +21,9 @@ const config: Config = {
                 green: {
                     primary: "#80EF11",
                 },
+                indigo: {
+                    primary: "#050324",
+                },
             },
         },
     },

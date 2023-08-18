@@ -1,24 +1,25 @@
+import { Status } from "@/@types/types";
 import { ButtonHTMLAttributes } from "react";
-type ButtonVariants = "entry" | "spent";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: ButtonVariants;
+    variant?: Status;
 };
 
-export const Button = ({ variant, className = "" }: ButtonProps) => {
+export const Button = ({ variant, className = "", ...props }: ButtonProps) => {
     const variants = {
         entry: "text-green-primary",
         spent: "text-red-600",
     };
     if (variant) {
-        const text = variant === "entry" ? variants.entry : variants.spent;
         return (
             <>
-                <button className="bg-blue-secondary px-2 py-2 h-[4rem] rounded-2xl flex gap-1">
-                    <p className={`${text} text-center`}>{"+"} </p>
+                <button
+                    className="bg-blue-secondary px-3 py-2 h-[4rem] rounded-2xl flex items-center gap-1"
+                    {...props}
+                >
+                    <p className={`${variants[variant]} text-center`}>{"+"} </p>
                     <p className="text-white">adicionar</p>
-                    <p className={`${text} `}>
-                        {" "}
+                    <p className={`${variants[variant]} `}>
                         {variant === "entry" ? "entrada" : "gasto"}
                     </p>
                 </button>
@@ -27,7 +28,7 @@ export const Button = ({ variant, className = "" }: ButtonProps) => {
     }
     return (
         <>
-            <button className={className}></button>
+            <button className={className} {...props}></button>
         </>
     );
 };
