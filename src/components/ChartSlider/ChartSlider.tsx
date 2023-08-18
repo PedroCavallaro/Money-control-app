@@ -14,6 +14,9 @@ export default function ChartSlider() {
                 <SwiperSlide>
                     <FixedChart />
                 </SwiperSlide>
+                <SwiperSlide>
+                    <FixedChart />
+                </SwiperSlide>
             </Swiper>
         </>
     );

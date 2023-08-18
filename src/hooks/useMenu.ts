@@ -30,6 +30,7 @@ export function useMenu() {
             type: "entry",
             isOpen: false,
         }));
+        console.log(menu);
     };
     return {
         openOnEntry,

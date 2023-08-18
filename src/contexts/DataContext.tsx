@@ -1,8 +1,15 @@
 "use client";
-import { ReactNode, createContext } from "react";
+import { ReactNode, createContext, useState } from "react";
 
-export const DataContext = createContext({});
+interface DataContext {
+    data: Array<string>;
+}
+
+export const DataContext = createContext({} as DataContext);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
-    return <DataContext.Provider value={""}>{children}</DataContext.Provider>;
+    const [data, setData] = useState(["a", "b"]);
+    return (
+        <DataContext.Provider value={{ data }}>{children}</DataContext.Provider>
+    );
 };
