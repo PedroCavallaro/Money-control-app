@@ -11,7 +11,7 @@ export default function Home() {
                     <Menu size={35} />
                 </button>
             </header>
-            <section className="flex justify-center items-center gap-3">
+            <section className="f   lex justify-center items-center gap-3">
                 <ChartSlider />
             </section>
             <ActionButtons />

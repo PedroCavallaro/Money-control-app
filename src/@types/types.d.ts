@@ -4,3 +4,14 @@ export type HistoryCardData = {
     value: string;
     date: Date;
 };
+
+export type RelativeExpense = {
+    desc: string;
+    date: string;
+    value: string;
+    movementType: {
+        select: {
+            type: string;
+        };
+    };
+};
