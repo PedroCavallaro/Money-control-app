@@ -37,7 +37,7 @@ export default function HistoryCard({
                     >
                         R$ {value}
                     </p>
-                    <p className="text-xs">{formatDate(date)}</p>
+                    <p className="text-xs">{formatDate(date.toString())}</p>
                 </div>
                 <p>{desc}</p>
             </div>

@@ -4,11 +4,11 @@ import { useContext, useRef } from "react";
 import Chart from "react-apexcharts";
 
 export default function FixedChart() {
-    const { transactions } = useContext(DataContext);
+    const { fixed } = useContext(DataContext);
     const graphRef = useRef(null);
 
-    if (typeof transactions !== "undefined") {
-        const { entry, leisure, spent } = transactions?.fixedExpenses;
+    if (typeof fixed !== "undefined") {
+        const { entry, leisure, spent } = fixed;
         return (
             <div className="w-[20rem] h-[12rem] bg-blue-secondary rounded-2xl">
                 <Chart

@@ -1,4 +1,5 @@
-import { Status } from "@/@types/types";
+import { RelativeExpense, Status } from "@/@types/types";
+import axios from "axios";
 import { X } from "lucide-react";
 import { useForm } from "react-hook-form";
 
@@ -12,6 +13,19 @@ type FormData = {
     desc: string;
     value: number;
 };
+
+async function submit(
+    status: Status,
+    { desc, value }: FormData
+): Promise<RelativeExpense> {
+    const res = await axios.post("/api", {
+        desc,
+        value,
+        movementTypeId: status,
+    });
+
+    return res.data;
+}
 
 export default function MovementForm({ status, isOpen, closeMenu }: FormProps) {
     const {
@@ -28,7 +42,9 @@ export default function MovementForm({ status, isOpen, closeMenu }: FormProps) {
             className={`${
                 isOpen ? "flex" : "hidden"
             } flex-col transition-all gap-3 items-center justify-center absolute translate-y-[30%] bg-indigo-primary px-2 rounded-xl py-6 z-50 w-[20rem]`}
-            onSubmit={handleSubmit((data) => {})}
+            onSubmit={handleSubmit((data) => {
+                submit(status, data);
+            })}
         >
             <button
                 onClick={closeMenu}
