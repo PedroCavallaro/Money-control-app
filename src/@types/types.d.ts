@@ -8,7 +8,7 @@ export type HistoryCardData = {
 export type RelativeExpense = {
     desc: string;
     date: string;
-    value: string;
+    value: number;
     movementType: {
         type: Status;
     };

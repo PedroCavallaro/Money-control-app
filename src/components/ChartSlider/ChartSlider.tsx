@@ -3,6 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import FixedChart from "../Charts/FixedChart";
 import "./ChartSlider.css";
 import "swiper/css";
+import RelativeChart from "../Charts/RelativeChart";
+import SpentComparsionChart from "../Charts/SpentComparsionChart";
 
 export default function ChartSlider() {
     return (
@@ -12,10 +14,10 @@ export default function ChartSlider() {
                     <FixedChart />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <FixedChart />
+                    <RelativeChart />
                 </SwiperSlide>
                 <SwiperSlide>
-                    <FixedChart />
+                    <SpentComparsionChart />
                 </SwiperSlide>
             </Swiper>
         </>
