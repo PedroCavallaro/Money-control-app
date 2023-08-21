@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(request: NextRequest) {
     const date = new Date();
-    const data = await prisma.relativeExpenses.findMany({
+    const lastExpenses = await prisma.relativeExpenses.findMany({
         where: {
             date: {
                 gt: new Date(
@@ -24,5 +24,6 @@ export async function GET(request: NextRequest) {
             },
         },
     });
-    return new NextResponse(JSON.stringify({ data }));
+
+    return new NextResponse(JSON.stringify(lastExpenses));
 }

@@ -10,8 +10,6 @@ export type RelativeExpense = {
     date: string;
     value: string;
     movementType: {
-        select: {
-            type: string;
-        };
+        type: Status;
     };
 };

@@ -4,18 +4,22 @@ import axios from "axios";
 import { RelativeExpense } from "@/@types/types";
 
 interface DataContext {
-    data: RelativeExpense[] | undefined;
+    transactions: RelativeExpense[] | undefined;
+    value: number;
+    description: string;
 }
 
 export const DataContext = createContext({} as DataContext);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
-    const [data, setData] = useState();
+    const [transactions, setTransactions] = useState<RelativeExpense[]>();
 
     const memo = useMemo(async () => {
-        await axios.get("/api").then((res) => setData(res.data));
+        await axios.get("/api").then((res) => setTransactions(res.data));
     }, []);
     return (
-        <DataContext.Provider value={{ data }}>{children}</DataContext.Provider>
+        <DataContext.Provider value={{ transactions }}>
+            {children}
+        </DataContext.Provider>
     );
 };

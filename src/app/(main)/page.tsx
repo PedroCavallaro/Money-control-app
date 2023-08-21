@@ -1,3 +1,4 @@
+"use client";
 import { Menu } from "lucide-react";
 import ActionButtons from "@/components/ActionButtons";
 import HistorySection from "@/components/HistorySection";
