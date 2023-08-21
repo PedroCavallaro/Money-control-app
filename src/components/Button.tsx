@@ -14,7 +14,7 @@ export const Button = ({ variant, className = "", ...props }: ButtonProps) => {
         return (
             <>
                 <button
-                    className="bg-blue-secondary px-3 py-2 h-[4rem] rounded-2xl flex items-center gap-1"
+                    className="bg-blue-secondary px-3 py-1 h-[4rem] rounded-2xl flex items-center gap-1"
                     {...props}
                 >
                     <p className={`${variants[variant]} text-center`}>{"+"} </p>

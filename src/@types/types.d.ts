@@ -13,3 +13,14 @@ export type RelativeExpense = {
         type: Status;
     };
 };
+
+export type FixedTransactions = {
+    entry: number;
+    leisure: number;
+    spent: number;
+};
+
+export type Transactions = {
+    fixedExpenses: FixedTransactions;
+    lastExpenses: RelativeExpense[];
+};

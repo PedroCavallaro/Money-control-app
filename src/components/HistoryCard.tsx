@@ -9,6 +9,8 @@ function formatDate(date: string) {
     });
 
     return (
+        newDate.getDate() +
+        ", " +
         month.charAt(0).toUpperCase() +
         month.slice(1) +
         ", " +
@@ -35,7 +37,7 @@ export default function HistoryCard({
                     >
                         R$ {value}
                     </p>
-                    <p>{formatDate(date)}</p>
+                    <p className="text-xs">{formatDate(date)}</p>
                 </div>
                 <p>{desc}</p>
             </div>

@@ -24,6 +24,12 @@ export async function GET(request: NextRequest) {
             },
         },
     });
+    const fixedExpenses = await prisma.fixedExpenses.findFirstOrThrow();
 
-    return new NextResponse(JSON.stringify(lastExpenses));
+    console.log(fixedExpenses);
+    const transactions = {
+        fixedExpenses,
+        lastExpenses,
+    };
+    return new NextResponse(JSON.stringify(transactions));
 }
