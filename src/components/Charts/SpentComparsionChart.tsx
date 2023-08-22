@@ -1,10 +1,9 @@
-import { DataContext } from "@/contexts/DataContext";
+import { useData } from "@/contexts/DataContext";
 import { relativeOptions } from "@/lib/chart";
-import { useContext } from "react";
 import Chart from "react-apexcharts";
 
 export default function SpentComparsionChart() {
-    const { transactions } = useContext(DataContext);
+    const { relative } = useData();
     let lastMonthSpents = 0;
     let actualMonthSpents = 0;
     // if (typeof transactions !== "undefined") {

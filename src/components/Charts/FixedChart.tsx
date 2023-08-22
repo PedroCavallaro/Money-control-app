@@ -1,10 +1,10 @@
-import { DataContext } from "@/contexts/DataContext";
+import { useData } from "@/contexts/DataContext";
 import { fixedOptions } from "@/lib/chart";
-import { useContext, useRef } from "react";
+import { useRef } from "react";
 import Chart from "react-apexcharts";
 
 export default function FixedChart() {
-    const { fixed } = useContext(DataContext);
+    const { fixed } = useData();
     const graphRef = useRef(null);
 
     if (typeof fixed !== "undefined") {

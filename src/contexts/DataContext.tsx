@@ -4,6 +4,7 @@ import {
     SetStateAction,
     createContext,
     useCallback,
+    useContext,
     useEffect,
     useState,
 } from "react";
@@ -19,7 +20,7 @@ interface DataContext {
     relative: RelativeExpense[] | undefined;
 }
 
-export const DataContext = createContext({} as DataContext);
+const DataContext = createContext({} as DataContext);
 
 export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [fixed, setFixed] = useState<FixedTransactions>();
@@ -41,3 +42,4 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
         </DataContext.Provider>
     );
 };
+export const useData = () => useContext(DataContext);

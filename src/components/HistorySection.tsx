@@ -1,10 +1,10 @@
 "use client";
-import { DataContext } from "@/contexts/DataContext";
-import { useContext } from "react";
+
+import { useData } from "@/contexts/DataContext";
 import HistoryCard from "./HistoryCard";
 
 export default function HistorySection() {
-    const { relative } = useContext(DataContext);
+    const { relative } = useData();
 
     return (
         <section className="w-[22rem] px-2 h-[30rem] overflow-scroll bg-blue-secondary mx-auto mt-6 rounded-md">
