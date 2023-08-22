@@ -26,6 +26,7 @@ export default function MovementForm({ status, isOpen, closeMenu }: FormProps) {
         handleNewExpense(res.data);
     }
     const {
+        reset,
         register,
         handleSubmit,
         formState: { errors },
@@ -38,9 +39,10 @@ export default function MovementForm({ status, isOpen, closeMenu }: FormProps) {
         <form
             className={`${
                 isOpen ? "flex" : "hidden"
-            } flex-col transition-all gap-3 items-center justify-center absolute translate-y-[30%] bg-indigo-primary px-2 rounded-xl py-6 z-50 w-[20rem]`}
+            } flex-col transition-all gap-3 items-center justify-center absolute translate-y-[30%] bg-indigo-primary px-2 rounded-md py-6 z-50 w-[20rem]`}
             onSubmit={handleSubmit((data) => {
                 submit(status, data);
+                reset();
             })}
         >
             <button

@@ -1,4 +1,6 @@
-export const fixedOptions = {
+import { ApexOptions } from "apexcharts";
+
+export const fixedOptions: ApexOptions = {
     title: {
         text: "Fixos",
         style: {
@@ -7,6 +9,7 @@ export const fixedOptions = {
             fontWeight: 200,
         },
     },
+
     noData: { text: "No Data" },
     labels: ["Entrada Fixa", "Gasto Fixo", "Gasto de lazer"],
     colors: ["#80EF11", "#FF0303", "#FFCC19"],
@@ -18,9 +21,28 @@ export const fixedOptions = {
             colors: ["#FFF", "#FFF", "#FFF"],
         },
     },
+    fill: {
+        type: "gradient",
+    },
+    plotOptions: {
+        pie: {
+            donut: {
+                labels: {
+                    show: true,
+                    name: {
+                        fontSize: "12px",
+                    },
+                    value: {
+                        show: true,
+                        color: "#FFF",
+                    },
+                },
+            },
+        },
+    },
 };
 
-export const relativeOptions = {
+export const relativeOptions: ApexOptions = {
     title: {
         text: "Relativo",
         style: {
@@ -35,9 +57,32 @@ export const relativeOptions = {
     stroke: {
         show: false,
     },
+    fill: {
+        type: "gradient",
+    },
+
     legend: {
         labels: {
             colors: ["#FFF", "#FFF"],
+        },
+    },
+    plotOptions: {
+        pie: {
+            donut: {
+                labels: {
+                    show: true,
+                    value: {
+                        show: true,
+                        color: "#FFF",
+                    },
+                    name: {
+                        fontSize: "12px",
+                    },
+                    total: {
+                        color: "#FFF",
+                    },
+                },
+            },
         },
     },
 };
