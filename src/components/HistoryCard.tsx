@@ -23,7 +23,6 @@ export default function HistoryCard({
     date,
     movementType,
 }: RelativeExpense) {
-    console.log(date);
     return (
         <div className="w-full h-[4rem] bg-blue-primary rounded-md">
             <div className="flex flex-col gap-1 px-2 py-1">

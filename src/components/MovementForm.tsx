@@ -1,4 +1,5 @@
 import { RelativeExpense, Status } from "@/@types/types";
+import { useData } from "@/contexts/DataContext";
 import axios from "axios";
 import { X } from "lucide-react";
 import { useForm } from "react-hook-form";
@@ -14,20 +15,16 @@ type FormData = {
     value: number;
 };
 
-async function submit(
-    status: Status,
-    { desc, value }: FormData
-): Promise<RelativeExpense> {
-    const res = await axios.post("/api", {
-        desc,
-        value,
-        movementTypeId: status,
-    });
-
-    return res.data;
-}
-
 export default function MovementForm({ status, isOpen, closeMenu }: FormProps) {
+    const { handleNewExpense } = useData();
+    async function submit(status: Status, { desc, value }: FormData) {
+        const res = await axios.post("/api", {
+            desc,
+            value,
+            movementTypeId: status,
+        });
+        handleNewExpense(res.data);
+    }
     const {
         register,
         handleSubmit,

@@ -52,7 +52,12 @@ export async function POST(request: NextRequest) {
             movementTypeId: statusId[movementTypeId],
         },
     });
-
+    const savedTransaction = {
+        ...transaction,
+        movementType: { type: movementTypeId },
+    };
+    console.log(savedTransaction);
+    console.log(savedTransaction.movementType.type);
     if (!transaction) return NextResponse.error();
-    return new NextResponse(JSON.stringify(transaction));
+    return new NextResponse(JSON.stringify(savedTransaction));
 }

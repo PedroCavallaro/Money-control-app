@@ -18,6 +18,7 @@ import {
 interface DataContext {
     fixed: FixedTransactions | undefined;
     relative: RelativeExpense[] | undefined;
+    handleNewExpense: (expense: RelativeExpense) => void;
 }
 
 const DataContext = createContext({} as DataContext);
@@ -25,6 +26,10 @@ const DataContext = createContext({} as DataContext);
 export const DataProvider = ({ children }: { children: ReactNode }) => {
     const [fixed, setFixed] = useState<FixedTransactions>();
     const [relative, setRelative] = useState<RelativeExpense[]>();
+
+    const handleNewExpense = (expense: RelativeExpense) => {
+        setRelative((prev) => [...(prev as RelativeExpense[]), expense]);
+    };
 
     const handleRequest = useCallback(async () => {
         const { data }: AxiosResponse<Transactions> = await axios.get("/api");
@@ -36,8 +41,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         handleRequest();
     }, [handleRequest]);
+
     return (
-        <DataContext.Provider value={{ fixed, relative }}>
+        <DataContext.Provider value={{ fixed, relative, handleNewExpense }}>
             {children}
         </DataContext.Provider>
     );

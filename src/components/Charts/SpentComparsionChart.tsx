@@ -19,7 +19,7 @@ export default function SpentComparsionChart() {
     //     });
     // }
     console.log(actualMonthSpents);
-    console.log(lastMonthSpents);
+
     return (
         <div className="w-[20rem] h-[12rem] bg-blue-secondary rounded-2xl">
             {/* <Chart
