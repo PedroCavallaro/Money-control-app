@@ -7,7 +7,7 @@ export default function ActionButtons() {
     const { menu, openOnEntry, openOnSpent, closeMenu } = useMenu();
 
     return (
-        <section className=" flex items-center justify-center gap-4 mt-8">
+        <section className=" flex items-center justify-center gap-4 mt-2">
             <Button variant="entry" onClick={openOnEntry} />
             <Button variant="spent" onClick={openOnSpent} />
             <MovementForm

@@ -34,7 +34,10 @@ export default function HistoryCard({
                                 : "text-red-500"
                         }`}
                     >
-                        R$ {value}
+                        {Intl.NumberFormat("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                        }).format(Number(value))}
                     </p>
                     <p className="text-xs">{formatDate(date.toString())}</p>
                 </div>

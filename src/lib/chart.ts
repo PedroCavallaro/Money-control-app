@@ -34,6 +34,13 @@ export const fixedOptions: ApexOptions = {
                     },
                     value: {
                         show: true,
+                        formatter: (val) => {
+                            return new Intl.NumberFormat("pt-BR", {
+                                style: "currency",
+                                currency: "BRL",
+                            }).format(Number(val));
+                        },
+                        fontSize: "12px",
                         color: "#FFF",
                     },
                 },
@@ -74,6 +81,13 @@ export const relativeOptions: ApexOptions = {
                     value: {
                         show: true,
                         color: "#FFF",
+                        formatter: (val) => {
+                            return new Intl.NumberFormat("pt-BR", {
+                                style: "currency",
+                                currency: "BRL",
+                            }).format(Number(val));
+                        },
+                        fontSize: "12px",
                     },
                     name: {
                         fontSize: "12px",
